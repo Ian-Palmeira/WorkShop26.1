@@ -1,0 +1,37 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+temperaturas = np.random.randint(20, 36, 7)
+dias = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
+
+df = pd.DataFrame({
+    "Dia": dias,
+    "Temperatura": temperaturas
+})
+
+print(df)
+print(f"Média: {df['Temperatura'].mean():.2f}")
+print(f"Máxima: {df['Temperatura'].max()}")
+print(f"Mínima: {df['Temperatura'].min()}")
+
+plt.figure(figsize=(10, 5))
+plt.plot(df["Dia"], df["Temperatura"], marker='o')
+plt.title("Temperatura ao longo da semana")
+plt.xlabel("Dias")
+plt.ylabel("Temperatura (°C)")
+plt.show()
+
+plt.figure(figsize=(10, 5))
+plt.bar(df["Dia"], df["Temperatura"])
+plt.title("Temperatura por dia")
+plt.xlabel("Dias")
+plt.ylabel("Temperatura (°C)")
+plt.show()
+
+plt.figure(figsize=(10, 5))
+plt.scatter(df["Dia"], df["Temperatura"])
+plt.title("Dispersão das temperaturas")
+plt.xlabel("Dias")
+plt.ylabel("Temperatura (°C)")
+plt.show()
